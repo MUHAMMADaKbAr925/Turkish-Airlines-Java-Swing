@@ -1,0 +1,67 @@
+java -cp "C:\Users\hp\OneDrive\Documents\mysql-connector-j-8.2.0\mysql-connector-j-8.2.0.jar;." FlightList
+
+
+
+CREATE TABLE User (
+    firstName VARCHAR(100),
+    surname VARCHAR(100),
+    language VARCHAR(100),
+    nationality VARCHAR(100),
+    dob VARCHAR(100),
+    title VARCHAR(100),
+    country VARCHAR(100),
+    trId VARCHAR(100) PRIMARY KEY,
+    city VARCHAR(100),
+    zip VARCHAR(100),
+    address VARCHAR(100),
+    email VARCHAR(100),
+    areaCode VARCHAR(100),
+    mobile VARCHAR(100),
+    password VARCHAR(100),
+    confirmPassword VARCHAR(100),
+    securityQuestion VARCHAR(100),
+    securityAnswer VARCHAR(100),
+    MilesAndSmilesUsername VARCHAR(100)
+);
+CREATE TABLE flight (
+    flightNum VARCHAR(255),
+    Departure VARCHAR(255),
+    Destination VARCHAR(255),
+    Dep_code_name VARCHAR(4),
+    Arr_code_name VARCHAR(4), 
+    Date_of_departure DATE,
+    Time_of_departure VARCHAR(255),
+    Time_of_Arrival VARCHAR(255),
+    is_direct BOOLEAN,
+    business_price INT,
+    economy_price INT,
+    PRIMARY KEY (flightNum),
+    is_booked BOOLEAN
+
+);
+insert into flight values(1111111112, 'Istanbul', 'New York', 'IST', 'JFK', '2024-05-13', '12:00', '20:00', true, 30000, 50000,false);
+insert into flight values(1111111113, 'Ankara', 'Istanbul', 'ESB', 'IST', '2024-05-13', '12:00', '13:00', true, 500, 1000, false);
+insert into flight values(1111111114, 'Ankara', 'Istanbul', 'ESB', 'IST', '2024-05-14', '10:00', '11:00', true, 600, 900, false);
+insert into flight values(1111111115, 'New York', 'Istanbul', 'JFK', 'IST', '2024-05-14', '12:00', '13:00', true, 30000, 100000, false);
+insert into flight values(1111111116, 'Ankara', 'New York', 'ESB', 'JFK', '2024-05-14', '12:00', '23:00', true, 50000, 100000,false);
+insert into flight values(1111111117, 'New York', 'Ankara', 'JFK', 'ESB', '2024-05-15', '14:00', '01:00', true, 50000, 100000,false);
+insert into flight values(1111111118, 'Istanbul', 'New York', 'IST', 'JFK', '2024-05-14', '11:00', '20:00', true, 40000, 60000,false);
+insert into flight values(1111111119, 'New York', 'Istanbul', 'JFK', 'IST', '2024-05-13', '11:00', '20:00', true, 40000, 60000,false);
+insert into flight values(1111111120, 'Istanbul', 'New York', 'IST', 'JFK', '2024-05-14', '11:00', '20:00', true, 40000, 60000,false);
+insert into flight values(1111111121, 'Istanbul', 'New York', 'IST', 'JFK', '2024-05-14', '11:00', '20:00', true, 40000, 60000,false);
+insert into flight values(1111111122, 'Istanbul', 'New York', 'IST', 'JFK', '2024-05-15', '11:00', '20:00', true, 50000, 80000,false);
+insert into flight values(1111111123, 'Istanbul', 'New York', 'IST', 'JFK', '2024-05-20', '11:00', '20:00', true, 60000, 90000,false);
+insert into flight values(1111111124, 'Ankara', 'Istanbul', 'ESB', 'IST', '2024-05-13', '13:00', '14:00', true, 600, 1000, false);
+insert into flight values(1111111125, 'Ankara', 'Istanbul', 'ESB', 'IST', '2024-05-14', '14:00', '15:00', true, 800, 1200, false);
+insert into flight values(1111111126, 'Ankara', 'Istanbul', 'ESB', 'IST', '2024-05-17', '13:00', '14:00', true, 700, 1000, false);
+insert into flight values(1111111127, 'Ankara', 'New York', 'ESB', 'JFK', '2024-05-20', '12:00', '23:00', true, 60000, 200000,false);
+insert into flight values(1111111128, 'Ankara', 'New York', 'ESB', 'JFK', '2024-05-22', '14:00', '1:00', true, 60000, 200000,false);
+insert into flight values(1111111129, 'Ankara', 'New York', 'ESB', 'JFK', '2024-05-22', '13:00', '24:00', true, 60000, 200000,false);
+
+
+CREATE TABLE Bookings (
+    credential VARCHAR(100),
+    preference VARCHAR(100),
+    flightNum VARCHAR(255),
+    PRIMARY KEY (credential, flightNum)
+);
